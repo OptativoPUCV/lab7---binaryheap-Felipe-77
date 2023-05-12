@@ -180,3 +180,16 @@ Fri 12 May 2023 01:14:34 PM UTC:
  tests:  5|2
 total_score: 35/70
 c896ab6
+Fri 12 May 2023 01:15:29 PM UTC: 
+ heap.c | 1 +
+ 1 file changed, 1 insertion(+)
+In file included from test.c:4:
+heap.c: In function ‘resize’:
+heap.c:33:28: error: expected ‘;’ before ‘return’
+   33 |         pq->size = newCapac;
+      |                            ^
+      |                            ;
+   34 |         return;
+      |         ~~~~~~              
+Compilation failed
+9cbec0c

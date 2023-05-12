@@ -30,6 +30,7 @@ void resize(Heap* pq){
 	pq->heapArray = (heapElem*) realloc(pq->heapArray, newCapac);
 	if (!pq->heapArray)	exit(EXIT_FAILURE);
 
+	pq->size = newCapac;
 	return;
 }
 
