@@ -55,8 +55,8 @@ void heap_push(Heap* pq, void* data, int priority){
 	pq->size++;
 	if (pq->size == pq->capac)	resize(pq);
 
-	pq->heapArray[pq->size - 1].data = data;
-	pq->heapArray[pq->size - 1].priority = priority;
+	pq->heapArray[pq->size - 1]->data = data;
+	pq->heapArray[pq->size - 1]->priority = priority;
 
 	heapify_u(pq, pq->size - 1);
 }
