@@ -36,11 +36,8 @@ Heap* createHeap(){
 	Heap* nuevo = (Heap*) malloc (sizeof(Heap));
 	if (!nuevo)	exit(EXIT_FAILURE);
 
-	nuevo->heapArray = (heapElem*)malloc(sizeof(heapElem));
+	nuevo->heapArray = (heapElem*) malloc(sizeof(heapElem));
 	if (!nuevo->heapArray)	exit(EXIT_FAILURE);
 
-	nuevo->size = 0;
-	nuevo->capac = 3;
-	
    	return nuevo;
 }
