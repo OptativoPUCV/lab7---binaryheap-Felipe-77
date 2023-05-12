@@ -421,3 +421,26 @@ heap.c:58:6: note: declared here
 cc1: all warnings being treated as errors
 Compilation failed
 2ec1cea
+Fri 12 May 2023 07:13:02 PM UTC: 
+ heap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+heap.c: In function ‘heapify_d’:
+heap.c:75:20: error: passing argument 1 of ‘heapify_d’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+   75 |         heapify_d(H->heapArray, size, largest_child);
+      |                   ~^~~~~~~~~~~
+      |                    |
+      |                    heapElem * {aka struct nodo *}
+heap.c:58:22: note: expected ‘Heap *’ {aka ‘struct Heap *’} but argument is of type ‘heapElem *’ {aka ‘struct nodo *’}
+   58 | void heapify_d(Heap *H, int size, int i){
+      |                ~~~~~~^
+heap.c: In function ‘heap_pop’:
+heap.c:85:9: error: too few arguments to function ‘heapify_d’
+   85 |         heapify_d(pq, 0);
+      |         ^~~~~~~~~
+heap.c:58:6: note: declared here
+   58 | void heapify_d(Heap *H, int size, int i){
+      |      ^~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+2bea73d
