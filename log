@@ -9,3 +9,18 @@ Fri 12 May 2023 12:13:35 PM UTC:
  tests:  0|4
 total_score: 0/70
 6e06323
+Fri 12 May 2023 12:25:55 PM UTC: 
+ heap.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+In file included from test.c:4:
+heap.c: In function ‘createHeap’:
+heap.c:37:14: error: ‘new’ undeclared (first use in this function)
+   37 |         if (!new)       exit(EXIT_FAILURE);
+      |              ^~~
+heap.c:37:14: note: each undeclared identifier is reported only once for each function it appears in
+heap.c:36:15: error: unused variable ‘heap’ [-Werror=unused-variable]
+   36 |         Heap* heap = (Heap*) malloc (sizeof(Heap));
+      |               ^~~~
+cc1: all warnings being treated as errors
+Compilation failed
+3c49826
