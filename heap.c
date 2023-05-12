@@ -45,9 +45,9 @@ void heapify_u(Heap *H, int index){
 void heap_push(Heap* pq, void* data, int priority){
 	pq->size++;
 	if (pq->size == pq->capac){
-		pq->heapArray = (heapElem*)calloc(pq->capac * 2, sizeof(heapElem));
+		pq->heapArray = (heapElem*)calloc((pq->capac * 2) + 1, sizeof(heapElem));
 
-		pq->capac *= 2;
+		pq->capac = (pq->capac * 2) + 1;
 	}
 
 	pq->heapArray[pq->size - 1].data = data;
