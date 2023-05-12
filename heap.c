@@ -60,17 +60,20 @@ void heapify_d(Heap *H, int index){
 	index_l = (2 * index) + 1;
 	index_r = (2 * index) + 2;
 
-	if (H->heapArray[index].priority < H->heapArray[index_l].priority){
-		swap(H->heapArray, index, index_l);
-		heapify_d(H, index_l);
-	}
-	else if (H->heapArray[index].priority < H->heapArray[index_r].priority){
-		swap(H->heapArray, index, index_r);
-		heapify_d(H, index_r);
-	}
-	else
-		return;
-	
+	int largest_child = i;
+  	if (left_child < size && heapArray[left_child].priority > heapArray[largest_child].priority) {
+    	largest_child = left_child;
+  	}
+  	if (right_child < size && heapArray[right_child].priority > heapArray[largest_child].priority) {
+    	largest_child = right_child;
+  	}
+
+  	if (largest_child != i) {
+    	heapElem tmp = heapArray[i];
+    	heapArray[i] = heapArray[largest_child];
+    	heapArray[largest_child] = tmp;
+    	heap_shift_down(heapArray, size, largest_child);
+  	}
 }
 
 void heap_pop(Heap* pq){
