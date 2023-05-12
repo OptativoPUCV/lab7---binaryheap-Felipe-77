@@ -137,3 +137,16 @@ heap.c:46:6: error: ‘Heap’ {aka ‘struct Heap’} has no member named ‘pr
       |      ^~
 Compilation failed
 a7293dc
+Fri 12 May 2023 12:52:15 PM UTC: 
+ heap.c | 11 +++++------
+ 1 file changed, 5 insertions(+), 6 deletions(-)
+In file included from test.c:4:
+heap.c: In function ‘heapify_u’:
+heap.c:43:11: error: incompatible types when assigning to type ‘int’ from type ‘heapElem’ {aka ‘struct nodo’}
+   43 |     aux = H->heapArray[parent];
+      |           ^
+heap.c:45:27: error: incompatible types when assigning to type ‘heapElem’ {aka ‘struct nodo’} from type ‘int’
+   45 |     H->heapArray[index] = aux;
+      |                           ^~~
+Compilation failed
+b8538c1

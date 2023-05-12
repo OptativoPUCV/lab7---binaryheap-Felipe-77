@@ -33,17 +33,16 @@ void resize(Heap* pq){
 	return;
 }
 
-void heapify_u(Heap *H, int index)
-{
+void heapify_u(Heap *H, int index){
   int parent = (index - 1) / 2;
   int aux;
 
-  if (H->priorities[parent] >= H->priorities[index])
+  if (H->heapArray[parent].priority >= H->heapArray[index].priority)
     return;
   else {
-    aux = H->priorities[parent];
-    H->priorities[parent] = H->priorities[index];
-    H->priorities[index] = aux;
+    aux = H->heapArray[parent];
+    H->heapArray[parent] = H->heapArray[index];
+    H->heapArray[index] = aux;
     heapify_u(H, parent);
   }
 }
