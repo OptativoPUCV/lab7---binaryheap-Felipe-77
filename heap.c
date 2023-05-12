@@ -35,7 +35,7 @@ void resize(Heap* pq){
 
 void heapify_u(Heap *H, int index){
   int parent = (index - 1) / 2;
-  int aux;
+  heapElem aux;
 
   if (H->heapArray[parent].priority >= H->heapArray[index].priority)
     return;
