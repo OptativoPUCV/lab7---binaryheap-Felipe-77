@@ -360,3 +360,24 @@ heap.c:59:13: error: variable ‘index_l’ set but not used [-Werror=unused-but
 cc1: all warnings being treated as errors
 Compilation failed
 7e62a6b
+Fri 12 May 2023 07:11:11 PM UTC: 
+ heap.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+In file included from test.c:4:
+heap.c: In function ‘heapify_d’:
+heap.c:63:29: error: ‘i’ undeclared (first use in this function)
+   63 |         int largest_child = i;
+      |                             ^
+heap.c:63:29: note: each undeclared identifier is reported only once for each function it appears in
+heap.c:64:26: error: ‘size’ undeclared (first use in this function)
+   64 |         if (left_child < size && heapArray[left_child].priority > heapArray[largest_child].priority) {
+      |                          ^~~~
+heap.c:64:34: error: ‘heapArray’ undeclared (first use in this function)
+   64 |         if (left_child < size && heapArray[left_child].priority > heapArray[largest_child].priority) {
+      |                                  ^~~~~~~~~
+heap.c:75:9: error: implicit declaration of function ‘heap_shift_down’ [-Werror=implicit-function-declaration]
+   75 |         heap_shift_down(heapArray, size, largest_child);
+      |         ^~~~~~~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+06deeb5

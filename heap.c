@@ -56,9 +56,9 @@ void heap_push(Heap* pq, void* data, int priority){
 }
 
 void heapify_d(Heap *H, int index){
-	int index_l, index_r;
-	index_l = (2 * index) + 1;
-	index_r = (2 * index) + 2;
+	int left_child, right_child;
+	left_child = (2 * index) + 1;
+	right_child = (2 * index) + 2;
 
 	int largest_child = i;
   	if (left_child < size && heapArray[left_child].priority > heapArray[largest_child].priority) {
