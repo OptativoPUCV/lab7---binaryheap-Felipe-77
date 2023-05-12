@@ -82,7 +82,7 @@ void heap_pop(Heap* pq){
 	pq->heapArray[0] = pq->heapArray[pq->size - 1];
 	pq->size--;
 
-	heapify_d(pq, 0);
+	heapify_d(pq, pq->size, 0);
 }
 
 Heap* createHeap(){
