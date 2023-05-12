@@ -24,15 +24,6 @@ void* heap_top(Heap* pq){
     return elem.data;
 }
 
-void resize(Heap* pq){
-	int newCapac = (pq->capac * 2) + 1;
-
-	pq->heapArray = (heapElem*) realloc(pq->heapArray, newCapac);
-	if (!pq->heapArray)	exit(EXIT_FAILURE);
-
-	pq->capac = newCapac;
-	return;
-}
 
 void swap(heapElem *arr, int a, int b) {
   heapElem aux = arr[a];
@@ -53,7 +44,11 @@ void heapify_u(Heap *H, int index){
 
 void heap_push(Heap* pq, void* data, int priority){
 	pq->size++;
-	if (pq->size == pq->capac)	resize(pq);
+	if (pq->size == pq->capac){
+		pq->heapArray = (heapElem*)calloc(pq->heapArray, pq->capac * 2);
+
+		pq->capac *= 2;
+	}
 
 	pq->heapArray[pq->size - 1].data = data;
 	pq->heapArray[pq->size - 1].priority = priority;
