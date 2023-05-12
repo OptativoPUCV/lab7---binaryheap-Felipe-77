@@ -33,18 +33,22 @@ void resize(Heap* pq){
 	return;
 }
 
-void heapify_u(Heap *H, int index){
-  int parent = (index - 1) / 2;
-  heapElem aux;
+void swap(heapElem *arr, int a, int b) {
+  heapElem aux = arr[a];
+  arr[a] = arr[b];
+  arr[b] = aux;
+}
 
-  if (H->heapArray[parent].priority >= H->heapArray[index].priority)
-    return;
-  else {
-    aux = H->heapArray[parent];
-    H->heapArray[parent] = H->heapArray[index];
-    H->heapArray[index] = aux;
-    heapify_u(H, parent);
-  }
+void heapify_u(Heap *H, int index){
+	int parent = (index - 1) / 2;
+	heapElem aux;
+
+	if (H->heapArray[parent].priority >= H->heapArray[index].priority)
+		return;
+	else {
+		swap(H->heapArray, parent, index);
+		heapify_u(H, parent);
+  	}
 }
 
 void heap_push(Heap* pq, void* data, int priority){
@@ -57,9 +61,35 @@ void heap_push(Heap* pq, void* data, int priority){
 	heapify_u(pq, pq->size - 1);
 }
 
+void heapify_d(Heap *H, int index){
+	int index_l, index_r;
+	index_l = (2 * index) + 1;
+	index_r = (2 * index) + 2;
+
+	if (H->heapArray[index].priority < H->heapArray[index_l].priority){
+		swap(H->heapArray, index, index_l);
+		heapify_d(H, index_l)
+	}
+	else if (H->heapArray[index].priority < H->heapArray[index_r].priority){
+		swap(H->heapArray, index, index_r);
+		heapify_d(H, index_r);
+	}
+	else
+		return;
+	
+}
 
 void heap_pop(Heap* pq){
+	if (pq->size == 0)	return;
 
+	heapElem aux;
+	pq->size--;
+
+	aux = pq->heapArray[0];
+	pq->heapArray[0] = pq->heapArray[pq->size];
+	pq->heapArray[pq->size] = aux;
+
+	heapify_d(pq, 0);
 }
 
 Heap* createHeap(){

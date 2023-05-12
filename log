@@ -156,3 +156,21 @@ Fri 12 May 2023 12:52:40 PM UTC:
  tests:  5|2
 total_score: 35/70
 19d32c7
+Fri 12 May 2023 01:14:01 PM UTC: 
+ heap.c | 36 +++++++++++++++++++++++++++++++++---
+ 1 file changed, 33 insertions(+), 3 deletions(-)
+In file included from test.c:4:
+heap.c: In function ‘heapify_u’:
+heap.c:44:18: error: unused variable ‘aux’ [-Werror=unused-variable]
+   44 |         heapElem aux;
+      |                  ^~~
+heap.c: In function ‘heapify_d’:
+heap.c:71:38: error: expected ‘;’ before ‘}’ token
+   71 |                 heapify_d(H, index_l)
+      |                                      ^
+      |                                      ;
+   72 |         }
+      |         ~                             
+cc1: all warnings being treated as errors
+Compilation failed
+5699405
