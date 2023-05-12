@@ -444,3 +444,16 @@ heap.c:58:6: note: declared here
 cc1: all warnings being treated as errors
 Compilation failed
 2bea73d
+Fri 12 May 2023 07:13:26 PM UTC: 
+ heap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+heap.c: In function ‘heap_pop’:
+heap.c:85:9: error: too few arguments to function ‘heapify_d’
+   85 |         heapify_d(pq, 0);
+      |         ^~~~~~~~~
+heap.c:58:6: note: declared here
+   58 | void heapify_d(Heap *H, int size, int i){
+      |      ^~~~~~~~~
+Compilation failed
+5a70882

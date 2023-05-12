@@ -72,7 +72,7 @@ void heapify_d(Heap *H, int size, int i){
     	heapElem tmp = H->heapArray[i];
     	H->heapArray[i] = H->heapArray[largest_child];
     	H->heapArray[largest_child] = tmp;
-    	heapify_d(H->heapArray, size, largest_child);
+    	heapify_d(H, size, largest_child);
   	}
 }
 
