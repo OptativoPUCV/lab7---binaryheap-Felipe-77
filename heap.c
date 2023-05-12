@@ -76,12 +76,8 @@ void heapify_d(Heap *H, int index){
 void heap_pop(Heap* pq){
 	if (pq->size == 0)	return;
 
-	heapElem aux;
+	pq->heapArray[0] = pq->heapArray[pq->size - 1];
 	pq->size--;
-
-	aux = pq->heapArray[0];
-	pq->heapArray[0] = pq->heapArray[pq->size];
-	pq->heapArray[pq->size] = aux;
 
 	heapify_d(pq, 0);
 }
