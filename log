@@ -35,3 +35,14 @@ heap.c:37:14: error: ‘new’ undeclared (first use in this function)
 heap.c:37:14: note: each undeclared identifier is reported only once for each function it appears in
 Compilation failed
 c9ab8c9
+Fri 12 May 2023 12:26:33 PM UTC: 
+ heap.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+In file included from test.c:4:
+heap.c: In function ‘createHeap’:
+heap.c:42:9: error: ‘new’ undeclared (first use in this function)
+   42 |         new->size = 0;
+      |         ^~~
+heap.c:42:9: note: each undeclared identifier is reported only once for each function it appears in
+Compilation failed
+cc5e9be
