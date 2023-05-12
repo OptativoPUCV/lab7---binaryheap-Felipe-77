@@ -52,12 +52,12 @@ void heapify_u(Heap *H, int index){
 }
 
 void heap_push(Heap* pq, void* data, int priority){
-	pq->size++;
 	if (pq->size == pq->capac)	resize(pq);
 
 	pq->heapArray[pq->size].data = data;
 	pq->heapArray[pq->size].priority = priority;
 
+	pq->size++;
 	heapify_u(pq, pq->size - 1);
 }
 
