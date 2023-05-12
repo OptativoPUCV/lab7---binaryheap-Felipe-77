@@ -24,10 +24,38 @@ void* heap_top(Heap* pq){
     return elem.data;
 }
 
+void resize(Heap* pq){
+	int newCapac = (pq->capac * 2) + 1;
 
+	pq->heapArray = (heapElem*) realloc(pq->heapArray, newCapac);
+	if (!pq->heapArray)	exit(EXIT_FAILURE);
+
+	return;
+}
+
+void heapify_u(Heap *H, int index)
+{
+  int parent = (index - 1) / 2;
+  int aux;
+
+  if (H->priorities[parent] >= H->priorities[index])
+    return;
+  else {
+    aux = H->priorities[parent];
+    H->priorities[parent] = H->priorities[index];
+    H->priorities[index] = aux;
+    heapify_u(H, parent);
+  }
+}
 
 void heap_push(Heap* pq, void* data, int priority){
+	if (pq->size == pq->capac)	resize(pq);
 
+	pq->heapArray[pq->size].data = data;
+	pq->heapArray[pq->size].priority = priority;
+
+	pq->size++;
+	heapify_u(pq, pq->size - 1);
 }
 
 

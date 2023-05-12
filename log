@@ -112,3 +112,28 @@ Fri 12 May 2023 12:41:15 PM UTC:
  tests:  2|2
 total_score: 20/70
 d9f5b20
+Fri 12 May 2023 12:50:22 PM UTC: 
+ heap.c | 28 ++++++++++++++++++++++++++++
+ 1 file changed, 28 insertions(+)
+In file included from test.c:4:
+heap.c: In function ‘heapify_u’:
+heap.c:41:8: error: ‘Heap’ {aka ‘struct Heap’} has no member named ‘priorities’
+   41 |   if (H->priorities[parent] >= H->priorities[index])
+      |        ^~
+heap.c:41:33: error: ‘Heap’ {aka ‘struct Heap’} has no member named ‘priorities’
+   41 |   if (H->priorities[parent] >= H->priorities[index])
+      |                                 ^~
+heap.c:44:12: error: ‘Heap’ {aka ‘struct Heap’} has no member named ‘priorities’
+   44 |     aux = H->priorities[parent];
+      |            ^~
+heap.c:45:6: error: ‘Heap’ {aka ‘struct Heap’} has no member named ‘priorities’
+   45 |     H->priorities[parent] = H->priorities[index];
+      |      ^~
+heap.c:45:30: error: ‘Heap’ {aka ‘struct Heap’} has no member named ‘priorities’
+   45 |     H->priorities[parent] = H->priorities[index];
+      |                              ^~
+heap.c:46:6: error: ‘Heap’ {aka ‘struct Heap’} has no member named ‘priorities’
+   46 |     H->priorities[index] = aux;
+      |      ^~
+Compilation failed
+a7293dc
