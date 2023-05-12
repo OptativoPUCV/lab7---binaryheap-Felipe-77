@@ -381,3 +381,25 @@ heap.c:75:9: error: implicit declaration of function ‘heap_shift_down’ [-Wer
 cc1: all warnings being treated as errors
 Compilation failed
 06deeb5
+Fri 12 May 2023 07:11:53 PM UTC: 
+ heap.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+In file included from test.c:4:
+heap.c: In function ‘heapify_d’:
+heap.c:64:34: error: ‘heapArray’ undeclared (first use in this function)
+   64 |         if (left_child < size && heapArray[left_child].priority > heapArray[largest_child].priority) {
+      |                                  ^~~~~~~~~
+heap.c:64:34: note: each undeclared identifier is reported only once for each function it appears in
+heap.c:75:9: error: implicit declaration of function ‘heap_shift_down’ [-Werror=implicit-function-declaration]
+   75 |         heap_shift_down(heapArray, size, largest_child);
+      |         ^~~~~~~~~~~~~~~
+heap.c: In function ‘heap_pop’:
+heap.c:85:9: error: too few arguments to function ‘heapify_d’
+   85 |         heapify_d(pq, 0);
+      |         ^~~~~~~~~
+heap.c:58:6: note: declared here
+   58 | void heapify_d(Heap *H, int size, int i){
+      |      ^~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+e8c13c2
