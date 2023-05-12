@@ -58,7 +58,7 @@ void heap_push(Heap* pq, void* data, int priority){
 	pq->heapArray[pq->size - 1].data = data;
 	pq->heapArray[pq->size - 1].priority = priority;
 
-	//heapify_u(pq, pq->size - 1);
+	heapify_u(pq, pq->size - 1);
 }
 
 void heapify_d(Heap *H, int index){
