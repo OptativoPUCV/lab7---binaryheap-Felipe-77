@@ -61,18 +61,18 @@ void heapify_d(Heap *H, int size, int i){
 	right_child = (2 * i) + 2;
 
 	int largest_child = i;
-  	if (left_child < size && heapArray[left_child].priority > heapArray[largest_child].priority) {
+  	if (left_child < size && H->heapArray[left_child].priority > H->heapArray[largest_child].priority) {
     	largest_child = left_child;
   	}
-  	if (right_child < size && heapArray[right_child].priority > heapArray[largest_child].priority) {
+  	if (right_child < size && H->heapArray[right_child].priority > H->heapArray[largest_child].priority) {
     	largest_child = right_child;
   	}
 
   	if (largest_child != i) {
-    	heapElem tmp = heapArray[i];
-    	heapArray[i] = heapArray[largest_child];
-    	heapArray[largest_child] = tmp;
-    	heap_shift_down(heapArray, size, largest_child);
+    	heapElem tmp = H->heapArray[i];
+    	H->heapArray[i] = H->heapArray[largest_child];
+    	H->heapArray[largest_child] = tmp;
+    	heap_shift_down(H->heapArray, size, largest_child);
   	}
 }
 
